@@ -30,6 +30,11 @@ class SectionGizmo extends THREE.Object3D {
         this.add(this.highlights);
         this.add(this.hemiPickers);
         this.add(this.subPickers);
+
+
+    }
+
+    public init() {
         let planes = new SectionGizmoPlanes();
         this.activePlane = planes.xyze;
         planes.yz.rotation.set(0, Math.PI / 2, 0);
@@ -40,8 +45,8 @@ class SectionGizmo extends THREE.Object3D {
             this.planes[plane] = planes[plane];
             this.planes[plane].visible = false;
         }
-        SectionGizmo.setupGizmos(this.handleGizmos, this.handles);
-        SectionGizmo.setupGizmos(this.pickerGizmos, this.pickers);
+        this.setupGizmos(this.handleGizmos, this.handles);
+        this.setupGizmos(this.pickerGizmos, this.pickers);
         this.traverse((child)=> {
             if (child instanceof THREE.Mesh) {
                 child.updateMatrix();
@@ -53,10 +58,9 @@ class SectionGizmo extends THREE.Object3D {
                 child.scale.set(1, 1, 1);
             }
         });
-
     }
 
-    public static setupGizmos<TGizmo,TParent>(gizmoMap:{[key:string]:any}, parent:THREE.Object3D):void {
+    public setupGizmos<TGizmo,TParent>(gizmoMap:{[key:string]:any}, parent:THREE.Object3D):void {
         for (let name in gizmoMap) {
             const length = gizmoMap[name].length;
             for (let i = 0; i < length; i++) {
