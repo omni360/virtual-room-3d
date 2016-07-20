@@ -17,15 +17,51 @@ class SectionControls extends THREE.Object3D {
     private _dragging:boolean;
     private plane:string;
     private _gizmo:SectionGizmoType;
+
     private domElement:Element;
+    private camera:THREE.PerspectiveCamera| THREE.OrthographicCamera;
+
     private changeEvent:Events;
     private mouseDownEvent:Events;
     private mouseUpEvent:Events;
     private objectChangeEvent:Events;
     private ray:THREE.Raycaster;
     private pointerVector:THREE.Vector2;
-    private camera:THREE.PerspectiveCamera| THREE.OrthographicCamera;
 
+    private point:THREE.Vector3;
+    private offset:THREE.Vector3;
+    private _rotation:THREE.Vector3;
+    private offsetRotation:THREE.Vector3;
+    private _scale:number;
+    private lookAtMatrix:THREE.Matrix4;
+    private eye:THREE.Vector3;
+
+    private tempMatrix:THREE.Matrix4;
+    private tempVector:THREE.Vector3;
+    private tempQuaternion:THREE.Quaternion;
+    private unitX:THREE.Vector3;
+    private unitY:THREE.Vector3;
+    private unitZ:THREE.Vector3;
+
+    private quaternionXYZ:THREE.Quaternion;
+    private quaternionX:THREE.Quaternion;
+    private quaternionY:THREE.Quaternion;
+    private quaternionZ:THREE.Quaternion;
+    private quaternionE:THREE.Quaternion;
+
+    private oldPosition:THREE.Vector3;
+    private oldScale:THREE.Vector3;
+    private oldRotationMatrix:THREE.Matrix4;
+
+    private parentRotationMatrix:THREE.Matrix4;
+    private parentScale:THREE.Vector3;
+
+    private worldPosition:THREE.Vector3;
+    private worldRotation:THREE.Euler;
+    private worldRotationMatrix:THREE.Matrix4;
+
+    private camPosition:THREE.Vector3;
+    private camRotation:THREE.Euler;
 
     constructor(camera:THREE.PerspectiveCamera | THREE.OrthographicCamera, domElement?:Element) {
         super();
@@ -54,67 +90,168 @@ class SectionControls extends THREE.Object3D {
         this.ray = new THREE.Raycaster();
         this.pointerVector = new THREE.Vector2();
 
-        let point = new THREE.Vector3();
-        let offset = new THREE.Vector3();
-        let rotation = new THREE.Vector3();
-        let offsetRotation = new THREE.Vector3();
-        let scale = 1;
-        let lookAtMatrix = new THREE.Matrix4();
-        let eye = new THREE.Vector3();
+        this.point = new THREE.Vector3();
+        this.offset = new THREE.Vector3();
+        this._rotation = new THREE.Vector3();
+        this.offsetRotation = new THREE.Vector3();
+        this._scale = 1;
+        this.lookAtMatrix = new THREE.Matrix4();
+        this.eye = new THREE.Vector3();
 
-        let tempMatrix = new THREE.Matrix4();
-        let tempVector = new THREE.Vector3();
-        let tempQuaternion = new THREE.Quaternion();
-        let unitX = new THREE.Vector3();
-        let unitY = new THREE.Vector3();
-        let unitZ = new THREE.Vector3();
+        this.tempMatrix = new THREE.Matrix4();
+        this.tempVector = new THREE.Vector3();
+        this.tempQuaternion = new THREE.Quaternion();
+        this.unitX = new THREE.Vector3();
+        this.unitY = new THREE.Vector3();
+        this.unitZ = new THREE.Vector3();
 
-        let quaternionXYZ = new THREE.Quaternion();
-        let quaternionX = new THREE.Quaternion();
-        let quaternionY = new THREE.Quaternion();
-        let quaternionZ = new THREE.Quaternion();
-        let quaternionE = new THREE.Quaternion();
+        this.quaternionXYZ = new THREE.Quaternion();
+        this.quaternionX = new THREE.Quaternion();
+        this.quaternionY = new THREE.Quaternion();
+        this.quaternionZ = new THREE.Quaternion();
+        this.quaternionE = new THREE.Quaternion();
 
         // 保存上一次位置,比例,旋转矩阵
-        let oldPosition = new THREE.Vector3();
-        let oldScale = new THREE.Vector3();
-        let oldRotationMatrix = new THREE.Matrix4();
+        this.oldPosition = new THREE.Vector3();
+        this.oldScale = new THREE.Vector3();
+        this.oldRotationMatrix = new THREE.Matrix4();
 
-        let parentRotationMatrix = new THREE.Matrix4();
-        let parentScale = new THREE.Vector3();
+        this.parentRotationMatrix = new THREE.Matrix4();
+        this.parentScale = new THREE.Vector3();
 
-        let worldPosition = new THREE.Vector3();
-        let worldRotation = new THREE.Euler();
-        let worldRoatationMatrix = new THREE.Matrix4();
-        let camPosition = new THREE.Vector3();
-        let camRotation = new THREE.Euler();
+        this.worldPosition = new THREE.Vector3();
+        this.worldRotation = new THREE.Euler();
+        this.worldRotationMatrix = new THREE.Matrix4();
+        this.camPosition = new THREE.Vector3();
+        this.camRotation = new THREE.Euler();
 
         //noinspection TypeScriptValidateTypes
         this.domElement.addEventListener("mousedown", this.onPointerDown, false);
     }
 
-    public update(){
+    public update() {
+        if (this.object === undefined) return;
 
     }
 
-    public onPointerDown(event) {
+    private onPointerHover(event) {
+        if (this.object === undefined || this._dragging === true || (event.button !== undefined && event.button !== 0)) {
+            return;
+        }
+        let pointer = event.changedTouches ? event.changedTouches[0] : event;
+        let intersect = this.intersectObjects(pointer, this._gizmo[this._mode].pickers.children);
+        let axis = null;
+        if (intersect) {
+            axis = (intersect as any).object.name;
+            event.preventDefault();
+        }
+        if (this.axis !== axis) {
+            this.axis = axis;
+            this.update();
+            this.dispatchEvent(this.changeEvent);
+        }
+    }
+
+    private onPointerDown(event) {
         if (this.object === undefined || this._dragging === true || (event.button !== undefined && event.button !== 0)) {
             return;
         }
         let pointer = event.changedTouches ? event.changedTouches[0] : event;
         if (pointer.button === 0 || pointer.button === undefined) {
             let intersect = this.intersectObjects(pointer, this._gizmo[this._mode].pickers.children);
-            if(intersect){
+            if (intersect) {
                 event.preventDefault();
                 event.stopPropagation();
                 this.dispatchEvent(this.mouseDownEvent);
                 this.axis = (intersect as any).object.name;
                 this.update();
-                // this.eye.copy(this.camPosition).sub()
+                this.eye.copy(this.camPosition).sub(this.worldPosition).normalize();
+                this._gizmo[this._mode].setActivePlane(this.axis, this.eye);
+                let planeIntersect = this.intersectObjects(pointer, [this._gizmo[this._mode].activePlane]);
+                if (planeIntersect) {
+                    this.oldPosition.copy(this.object.position);
+                    this.oldScale.copy((this.object.scale));
 
+                    this.oldRotationMatrix.extractRotation(this.object.matrix);
+                    this.worldRotationMatrix.extractRotation(this.object.matrixWorld);
 
+                    this.parentRotationMatrix.extractRotation(this.object.parent.matrixWorld);
+                    this.parentScale.setFromMatrixScale(this.tempMatrix.getInverse(this.object.parent.matrixWorld));
+
+                    this.offset.copy((planeIntersect as any).point)
+
+                }
             }
         }
+        this._dragging = true;
+
+    }
+
+    private onPointerMove(event) {
+        if (this.object === undefined || this._dragging === false || this.axis === null || (event.button !== undefined && event.button !== 0)) {
+            return;
+        }
+        let pointer = event.changedTouches ? event.changedTouches[0] : event;
+        let planeIntersect = this.intersectObjects(pointer, [this._gizmo[this._mode].activePlane]);
+        if (planeIntersect === false) {
+            return;
+        }
+        event.preventDefault();
+        event.stopPropagation();
+        this.point.copy((planeIntersect as any).point);
+        if (this._mode === "translate") {
+            this.point.sub(this.offset);
+            this.point.multiply(this.parentScale);
+            if (this.space === "local") {
+                this.point.applyMatrix4(this.tempMatrix.getInverse(this.worldRotationMatrix));
+                if (this.axis.search("x") === -1) {
+                    this.point.x = 0;
+                }
+                if (this.axis.search("y")) {
+                    this.point.y = 0;
+                }
+                if (this.axis.search("z")) {
+                    this.point.z = 0;
+                }
+                this.point.applyMatrix4(this.tempMatrix.getInverse(this.parentRotationMatrix));
+                this.object.position.copy(this.oldPosition);
+                this.object.position.add(this.point);
+            }
+            if (this.space === "world" || this.axis.search("xyz") !== -1) {
+                if (this.axis.search("x") === -1) {
+                    this.point.x = 0;
+                }
+                if (this.axis.search("y") === -1) {
+                    this.point.y = 0;
+                }
+                if (this.axis.search("z") === -1) {
+                    this.point.z = 0;
+                }
+                this.point.applyMatrix4(this.tempMatrix.getInverse(this.parentRotationMatrix));
+                this.object.position.copy(this.oldPosition);
+                this.object.position.add(this.point);
+            }
+            if (this.translationSnap !== null) {
+                if (this.space === "local") {
+                    this.object.position.applyMatrix4(this.tempMatrix.getInverse(this.worldRotationMatrix));
+                }
+                if (this.axis.search("x") !== -1) {
+                    this.object.position.x = Math.round(this.object.position.x / this.translationSnap) * this.translationSnap;
+                }
+                if (this.axis.search("y") !== -1) {
+                    this.object.position.y = Math.round(this.object.position.y / this.translationSnap) * this.translationSnap;
+                }
+                if (this.axis.search("z") !== -1) {
+                    this.object.position.z = Math.round(this.object.position.z / this.translationSnap) * this.translationSnap;
+                }
+                if (this.space === "local") {
+                    this.object.position.applyMatrix4(this.worldRotationMatrix);
+                }
+            }
+        } else if (this._mode === "scale") {
+
+        }
+
 
     }
 

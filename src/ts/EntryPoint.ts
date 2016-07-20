@@ -127,7 +127,7 @@ class EntryPoint {
     private render() {
         requestAnimationFrame(() => this.render());
         var delta = this.clock.getDelta();
-        this.root.rotation.y += delta * sceneRotationSpeed;
+        // this.root.rotation.y += delta * sceneRotationSpeed;
         this.controls.update();
         this.virtualDeviceManager.update(delta);
         this.renderer.render(this.scene, this.camera);
