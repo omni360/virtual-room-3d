@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf07b494-703b-4ab0-935b-c0cc6062c27a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ts/section/SectionArrowGeometry.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ts/section/SectionTranslateRotateHemiPickerGizmo.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ts/section/SectionTranslateRotateSubPickerGizmo.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ts/section/SectionTranslateRotationHighlightGizmo.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ts/section/SectionControls.ts" afterPath="$PROJECT_DIR$/src/ts/section/SectionControls.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ts/section/SectionTranslateHandleGizmo.ts" afterPath="$PROJECT_DIR$/src/ts/section/SectionTranslateHandleGizmo.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ts/section/SectionTranslateRotateHandleGizmo.ts" afterPath="$PROJECT_DIR$/src/ts/section/SectionTranslateRotateHandleGizmo.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ts/section/SectionTranslateRotatePickerGizmo.ts" afterPath="$PROJECT_DIR$/src/ts/section/SectionTranslateRotatePickerGizmo.ts" />
     </list>
     <ignored path="virtual-room-3d.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,51 +30,45 @@
     <favorites_list name="virtual-room-3d" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.5">
+    <splitter split-orientation="vertical" split-proportion="0.22766885">
       <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="SectionTranslateHandleGizmo.ts" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ts/section/SectionTranslateHandleGizmo.ts">
+        <leaf>
+          <file leaf-file-name="SectionControls.ts" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ts/section/SectionControls.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-408">
-                  <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+                <state relative-caret-position="168">
+                  <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+                  <folding>
+                    <element signature="n#!!doc" expanded="true" />
+                    <element signature="n#!!block;n#getMode#0;n#SectionControls#0" expanded="false" />
+                    <element signature="n#!!block;n#setMode#0;n#SectionControls#0" expanded="false" />
+                    <element signature="n#!!block;n#setTranslationSnap#0;n#SectionControls#0" expanded="false" />
+                    <element signature="n#!!block;n#setRotationSnap#0;n#SectionControls#0" expanded="false" />
+                    <element signature="n#!!block;n#setSize#0;n#SectionControls#0" expanded="false" />
+                    <element signature="n#!!block;n#setSpace#0;n#SectionControls#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="SectionTranslateRotatePickerGizmo.ts" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ts/section/SectionTranslateRotatePickerGizmo.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-147">
+                  <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
+                  <folding>
+                    <element signature="n#!!doc;n#SectionTranslateRotatePickerGizmo#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="lib.d.ts" pinned="false" current-in-tab="false">
+            <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/typescriptCompiler/external/lib.d.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="740">
+                  <caret line="7084" column="10" selection-start-line="7084" selection-start-column="10" selection-end-line="7084" selection-end-column="10" />
                   <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="SectionGizmoScale.ts" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ts/section/SectionGizmoScale.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="42">
-                  <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-                  <folding>
-                    <element signature="n#!!doc;n#SectionGizmoScale#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="SectionGizmoMaterial.ts" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ts/section/SectionGizmoMaterial.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="441">
-                  <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-                  <folding>
-                    <element signature="n#!!doc;n#SectionGizmoMaterial#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="SectionTranslatePickerGizmo.ts" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/ts/section/SectionTranslatePickerGizmo.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-84">
-                  <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-                  <folding>
-                    <element signature="n#!!doc;n#SectionTranslatePickerGizmo#0" expanded="false" />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -89,11 +85,31 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="SectionGizmoPlanes.ts" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/ts/section/SectionGizmoPlanes.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="126">
+                  <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="SectionTranslateRotationHighlightGizmo.ts" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ts/section/SectionTranslateRotationHighlightGizmo.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="609">
+                  <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="SectionGizmoTranslate.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/ts/section/SectionGizmoTranslate.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <state relative-caret-position="-188">
+                  <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
                   <folding>
                     <element signature="n#!!doc;n#SectionGizmoTranslate#0" expanded="false" />
                   </folding>
@@ -101,26 +117,34 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="SectionArrowGeometry.ts" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ts/section/SectionArrowGeometry.ts">
+          <file leaf-file-name="SectionTranslateHandleGizmo.ts" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ts/section/SectionTranslateHandleGizmo.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="168">
+                  <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="SectionTranslatePickerGizmo.ts" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ts/section/SectionTranslatePickerGizmo.ts">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="21">
-                  <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+                  <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
                   <folding>
-                    <element signature="n#!!doc;n#SectionArrowGeometry#0" expanded="false" />
+                    <element signature="n#!!doc;n#SectionTranslatePickerGizmo#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="SectionGizmoLineMaterial.ts" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ts/section/SectionGizmoLineMaterial.ts">
+          <file leaf-file-name="SectionTool.ts" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ts/section/SectionTool.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-                  <folding>
-                    <element signature="n#!!doc;n#SectionGizmoLineMaterial#0" expanded="false" />
-                  </folding>
+                <state relative-caret-position="168">
+                  <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -129,13 +153,45 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="SectionTranslateRotatePickerGizmo.ts" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/ts/section/SectionTranslateRotatePickerGizmo.ts">
+          <file leaf-file-name="SectionTranslateRotateSubPickerGizmo.ts" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ts/section/SectionTranslateRotateSubPickerGizmo.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="459">
-                  <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+                <state relative-caret-position="147">
+                  <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
                   <folding>
-                    <element signature="n#!!doc;n#SectionTranslateRotatePickerGizmo#0" expanded="false" />
+                    <element signature="n#!!doc;n#SectionTranslateRotateSubPickerGizmo#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="SectionTranslateRotateHemiPickerGizmo.ts" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ts/section/SectionTranslateRotateHemiPickerGizmo.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="147">
+                  <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="SectionTranslateRotateHandleGizmo.ts" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/ts/section/SectionTranslateRotateHandleGizmo.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="404">
+                  <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="SectionArrowGeometry.ts" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ts/section/SectionArrowGeometry.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="21">
+                  <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
+                  <folding>
+                    <element signature="n#!!doc;n#SectionArrowGeometry#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -183,14 +239,17 @@
         <option value="$PROJECT_DIR$/src/ts/section/SectionHandleGizmo.ts" />
         <option value="$PROJECT_DIR$/src/ts/section/SectionPickerGizmo.ts" />
         <option value="$PROJECT_DIR$/src/ts/EntryPoint.ts" />
-        <option value="$PROJECT_DIR$/src/ts/section/SectionControls.ts" />
         <option value="$PROJECT_DIR$/src/ts/section/SectionGizmoTranslateRotate.ts" />
         <option value="$PROJECT_DIR$/src/ts/section/SectionTranslateRotateGizmo.ts" />
         <option value="$PROJECT_DIR$/src/ts/section/SectionTranslatePickerGizmo.ts" />
-        <option value="$PROJECT_DIR$/src/ts/section/SectionTranslateHandleGizmo.ts" />
         <option value="$PROJECT_DIR$/src/ts/section/SectionArrowGeometry.ts" />
-        <option value="$PROJECT_DIR$/src/ts/section/SectionTranslateRotateHandleGizmo.ts" />
         <option value="$PROJECT_DIR$/src/ts/section/SectionTranslateRotatePickerGizmo.ts" />
+        <option value="$PROJECT_DIR$/src/ts/section/SectionControls.ts" />
+        <option value="$PROJECT_DIR$/src/ts/section/SectionTranslateRotateSubPickerGizmo.ts" />
+        <option value="$PROJECT_DIR$/src/ts/section/SectionTranslateRotateHandleGizmo.ts" />
+        <option value="$PROJECT_DIR$/src/ts/section/SectionTranslateHandleGizmo.ts" />
+        <option value="$PROJECT_DIR$/src/ts/section/SectionTranslateRotationHighlightGizmo.ts" />
+        <option value="$PROJECT_DIR$/src/ts/section/SectionTranslateRotateHemiPickerGizmo.ts" />
       </list>
     </option>
   </component>
@@ -257,6 +316,28 @@
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>GeneralJavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>JSAnnotator</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
@@ -285,24 +366,7 @@
       <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="virtual-room-3d" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="virtual-room-3d" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="virtual-room-3d" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
+        <subPane />
       </pane>
     </panes>
   </component>
@@ -403,7 +467,7 @@
       <workItem from="1468566491361" duration="948000" />
       <workItem from="1468895728745" duration="2179000" />
       <workItem from="1468902644762" duration="37349000" />
-      <workItem from="1469063922021" duration="21338000" />
+      <workItem from="1469063922021" duration="26709000" />
     </task>
     <task id="LOCAL-00001" summary="update sectioncontrols">
       <created>1468986894594</created>
@@ -433,11 +497,18 @@
       <option name="project" value="LOCAL" />
       <updated>1469081006984</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="update">
+      <created>1469088265825</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1469088265825</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61814000" />
+    <option name="totallyTimeSpent" value="67185000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -453,15 +524,15 @@
     <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26923078" sideWeight="0.5261438" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6655983" sideWeight="0.4738562" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32897604" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32686085" sideWeight="0.50632244" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12179487" sideWeight="0.4738562" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32897604" sideWeight="0.4957265" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4573894" sideWeight="0.50747865" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32897604" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40990517" sideWeight="0.5283333" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26252723" sideWeight="0.49367756" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45751634" sideWeight="0.49683878" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32026145" sideWeight="0.49252138" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.48907104" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3592233" sideWeight="0.49789253" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3583878" sideWeight="0.491453" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -487,24 +558,16 @@
     <MESSAGE value="update sectioncontrols" />
     <MESSAGE value="update sectioncontrols: fix bugs: can't pick this controls' pickergizmo" />
     <MESSAGE value="add translaterotate gizmo" />
-    <option name="LAST_COMMIT_MESSAGE" value="add translaterotate gizmo" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ts/section/SectionHandleGizmos.ts" />
-    <entry file="file://$PROJECT_DIR$/src/ts/section/SectionGizmoTransrotate.ts" />
-    <entry file="file://$PROJECT_DIR$/src/ts/parameter/ParameterObserver.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="1" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ts/service/MockRemoteService.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -534,7 +597,7 @@
         <state relative-caret-position="-4097">
           <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
           <folding>
-            <marker date="1469080682643" expanded="true" signature="76:99" ph="/** Entry point. ...*/" />
+            <marker date="1469093465016" expanded="true" signature="76:99" ph="/** Entry point. ...*/" />
           </folding>
         </state>
       </provider>
@@ -647,24 +710,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ts/section/SectionGizmoType.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="12" column="56" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
-          <folding>
-            <element signature="n#!!doc;n#SectionGizmoType#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/typescriptCompiler/external/lib.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="7911" column="10" selection-start-line="7911" selection-start-column="10" selection-end-line="7911" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/typescript/lib/lib.es6.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -750,22 +795,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ts/section/SectionControls.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2333">
-          <caret line="213" column="20" selection-start-line="213" selection-start-column="20" selection-end-line="213" selection-end-column="20" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="n#!!block;n#getMode#0;n#SectionControls#0" expanded="false" />
-            <element signature="n#!!block;n#setMode#0;n#SectionControls#0" expanded="false" />
-            <element signature="n#!!block;n#setTranslationSnap#0;n#SectionControls#0" expanded="false" />
-            <element signature="n#!!block;n#setRotationSnap#0;n#SectionControls#0" expanded="false" />
-            <element signature="n#!!block;n#setSize#0;n#SectionControls#0" expanded="false" />
-            <element signature="n#!!block;n#setSpace#0;n#SectionControls#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ts/EntryPoint.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3213">
@@ -790,38 +819,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ts/section/SectionGizmoPlanes.ts">
+    <entry file="file://$PROJECT_DIR$/src/ts/section/SectionGizmoMaterial.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ts/section/SectionGizmo.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+        <state relative-caret-position="441">
+          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
           <folding>
-            <element signature="n#!!doc;n#SectionGizmo#0" expanded="false" />
+            <element signature="n#!!doc;n#SectionGizmoMaterial#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ts/section/SectionTool.ts">
+    <entry file="file://$PROJECT_DIR$/src/ts/section/SectionGizmoRotate.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-          <folding />
+        <state relative-caret-position="42">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc;n#SectionGizmoRotate#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ts/section/SectionGizmoLineMaterial.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
+        <state relative-caret-position="273">
           <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
           <folding>
             <element signature="n#!!doc;n#SectionGizmoLineMaterial#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ts/section/SectionGizmoType.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="12" column="56" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
+          <folding>
+            <element signature="n#!!doc;n#SectionGizmoType#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ts/section/SectionGizmo.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+          <folding>
+            <element signature="n#!!doc;n#SectionGizmo#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -846,65 +889,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ts/section/SectionGizmoMaterial.ts">
+    <entry file="file://$PROJECT_DIR$/src/ts/section/SectionTool.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-          <folding>
-            <element signature="n#!!doc;n#SectionGizmoMaterial#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ts/section/SectionArrowGeometry.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-          <folding>
-            <element signature="n#!!doc;n#SectionArrowGeometry#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ts/section/SectionTranslateHandleGizmo.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-408">
-          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+        <state relative-caret-position="168">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ts/section/SectionTranslateRotateHandleGizmo.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="48" column="4" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ts/section/SectionGizmoRotate.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc;n#SectionGizmoRotate#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ts/section/SectionGizmoTranslate.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc;n#SectionGizmoTranslate#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ts/section/SectionTranslatePickerGizmo.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-84">
+        <state relative-caret-position="21">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding>
             <element signature="n#!!doc;n#SectionTranslatePickerGizmo#0" expanded="false" />
@@ -912,13 +907,107 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/typescriptCompiler/external/lib.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="740">
+          <caret line="7084" column="10" selection-start-line="7084" selection-start-column="10" selection-end-line="7084" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ts/section/SectionTranslateRotatePickerGizmo.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+        <state relative-caret-position="-147">
+          <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
           <folding>
             <element signature="n#!!doc;n#SectionTranslateRotatePickerGizmo#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ts/section/SectionGizmoTranslate.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-188">
+          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
+          <folding>
+            <element signature="n#!!doc;n#SectionGizmoTranslate#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ts/section/SectionArrowGeometry.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
+          <folding>
+            <element signature="n#!!doc;n#SectionArrowGeometry#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ts/section/SectionControls.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!block;n#getMode#0;n#SectionControls#0" expanded="false" />
+            <element signature="n#!!block;n#setMode#0;n#SectionControls#0" expanded="false" />
+            <element signature="n#!!block;n#setTranslationSnap#0;n#SectionControls#0" expanded="false" />
+            <element signature="n#!!block;n#setRotationSnap#0;n#SectionControls#0" expanded="false" />
+            <element signature="n#!!block;n#setSize#0;n#SectionControls#0" expanded="false" />
+            <element signature="n#!!block;n#setSpace#0;n#SectionControls#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ts/section/SectionTranslateHandleGizmo.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ts/section/SectionTranslateRotateSubPickerGizmo.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+          <folding>
+            <element signature="n#!!doc;n#SectionTranslateRotateSubPickerGizmo#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ts/section/SectionTranslateRotationHighlightGizmo.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ts/section/SectionGizmoPlanes.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ts/section/SectionTranslateRotateHemiPickerGizmo.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ts/section/SectionTranslateRotateHandleGizmo.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>

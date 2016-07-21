@@ -2,7 +2,7 @@
  * Created by imaker on 7/21/2016.
  */
 class SectionTranslateRotateHandleGizmo {
-    public z:[(THREE.Mesh | number[])[],THREE.Line[]];
+    public z:[(THREE.Mesh | number[])[]];
     public rx:[(THREE.Mesh|number[])[]];
     public ry:[(THREE.Mesh|number[])[]];
 

@@ -279,7 +279,7 @@ class SectionControls extends THREE.Object3D {
 
     }
 
-    public onPointerHover(event) {
+    public onPointerHover(event:any) {
 
         if (this.object === undefined || this._dragging === true || (event.button !== undefined && event.button !== 0)) {
             return;
@@ -298,7 +298,7 @@ class SectionControls extends THREE.Object3D {
         }
     }
 
-    public onPointerDown(event) {
+    public onPointerDown(event:any) {
         if (this.object === undefined || this._dragging === true || (event.button !== undefined && event.button !== 0)) {
             return;
         }
@@ -334,7 +334,7 @@ class SectionControls extends THREE.Object3D {
 
     }
 
-    public onPointerMove(event) {
+    public onPointerMove(event:any) {
         if (this.object === undefined || this._dragging === false || this.axis === null || (event.button !== undefined && event.button !== 0)) {
             return;
         }
@@ -527,7 +527,7 @@ class SectionControls extends THREE.Object3D {
         this.dispatchEvent(this.objectChangeEvent);
     }
 
-    public onPointerUp(event) {
+    public onPointerUp(event:any) {
         event.preventDefault();
         if (event.button !== undefined && event.button !== 0) {
             return;
