@@ -11,11 +11,7 @@ class SectionTranslateHandleGizmo {
     public xz:[(THREE.Mesh|number[])[]];
 
     constructor() {
-        let arrowGeometry = new THREE.Geometry();
-        let mesh = new THREE.Mesh(new THREE.CylinderGeometry(0, 0.05, 0.2, 12, 1, false));
-        mesh.position.y = 0.5;
-        mesh.updateMatrix();
-        arrowGeometry.merge(mesh.geometry, mesh.matrix);
+        let arrowGeometry = SectionArrowGeometry.getArrowGeomety();
         let lineXGeometry = new THREE.BufferGeometry();
         lineXGeometry.addAttribute('position', new THREE.Float32Attribute([0, 0, 0, 1, 0, 0], 3));
         let lineYGeometry = new THREE.BufferGeometry();
