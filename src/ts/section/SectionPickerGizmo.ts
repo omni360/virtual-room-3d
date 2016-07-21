@@ -2,13 +2,13 @@
  * Created by imaker on 7/19/2016.
  */
 class SectionPickerGizmo {
-    public x:[THREE.Mesh[]];
-    public y:[THREE.Mesh[]];
-    public z:[THREE.Mesh[]];
-    public xyz:[THREE.Mesh[]];
-    public xy:[THREE.Mesh[]];
-    public yz:[THREE.Mesh[]];
-    public xz:[THREE.Mesh[]];
+    public x:[(THREE.Mesh|number[])[]];
+    public y:[(THREE.Mesh|number[])[]];
+    public z:[(THREE.Mesh|number[])[]];
+    public xyz:[(THREE.Mesh|number[])[]];
+    public xy:[(THREE.Mesh|number[])[]];
+    public yz:[(THREE.Mesh|number[])[]];
+    public xz:[(THREE.Mesh|number[])[]];
 
     constructor() {
         const pickerMaterial = new SectionGizmoMaterial({visible: false, transparent: false});

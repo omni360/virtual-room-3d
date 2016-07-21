@@ -9,8 +9,8 @@ type Events = {
 class SectionControls extends THREE.Object3D {
     public object:THREE.Mesh | THREE.Object3D;
     public visible:boolean;
-    public translationSnap:THREE.Vector3;
-    public rotationSnap:THREE.Vector3;
+    public translationSnap:number;
+    public rotationSnap:number;
     public space:string;
     public size:number;
     public axis:string;
@@ -64,10 +64,10 @@ class SectionControls extends THREE.Object3D {
     private camPosition:THREE.Vector3;
     private camRotation:THREE.Euler;
 
-    constructor(camera:THREE.PerspectiveCamera | THREE.OrthographicCamera, domElement?:Element) {
+    constructor(camera:THREE.PerspectiveCamera | THREE.OrthographicCamera, domElement?:any) {
         super();
         this.camera = camera;
-        this.domElement = (domElement !== undefined) ? domElement : <Element>document;
+        this.domElement = (domElement !== undefined) ? domElement : document;
         this.object = undefined;
         this.visible = false;
         this.translationSnap = null;
@@ -126,38 +126,82 @@ class SectionControls extends THREE.Object3D {
         this.camPosition = new THREE.Vector3();
         this.camRotation = new THREE.Euler();
 
-        //noinspection TypeScriptValidateTypes
-        this.domElement.addEventListener("mousedown", this.onPointerDown, false);
-        this.domElement.addEventListener("touchstart", this.onPointerDown, false);
+        this.domElement.addEventListener("mousedown", (event)=> {
+                this.onPointerDown(event);
+            }, false
+        );
+        this.domElement.addEventListener("touchstart", (event)=> {
+            this.onPointerDown(event);
+        }, false);
 
-        this.domElement.addEventListener("mousemove", this.onPointerHover, false);
-        this.domElement.addEventListener("touchmove", this.onPointerHover, false);
+        this.domElement.addEventListener("mousemove", (event)=> {
+            this.onPointerHover(event);
+        }, false);
+        this.domElement.addEventListener("touchmove", (event)=> {
+            this.onPointerHover(event);
+        }, false);
 
-        this.domElement.addEventListener("mousemove", this.onPointerMove, false);
-        this.domElement.addEventListener("touchmove", this.onPointerMove, false);
+        this.domElement.addEventListener("mousemove", (event)=> {
+            this.onPointerMove(event);
+        }, false);
+        this.domElement.addEventListener("touchmove", (event)=> {
+            this.onPointerMove(event);
+        }, false);
 
-        this.domElement.addEventListener("mouseup", this.onPointerUp, false);
-        this.domElement.addEventListener("mouseout", this.onPointerUp, false);
-        this.domElement.addEventListener("touchend", this.onPointerUp, false);
-        this.domElement.addEventListener("touchcancel", this.onPointerUp, false);
-        this.domElement.addEventListener("touchleave", this.onPointerUp, false);
+        this.domElement.addEventListener("mouseup", (event)=> {
+            this.onPointerUp(event);
+        }, false);
+        this.domElement.addEventListener("mouseout", (event)=> {
+            this.onPointerUp(event);
+        }, false);
+        this.domElement.addEventListener("touchend", (event)=> {
+            this.onPointerUp(event);
+        }, false);
+        this.domElement.addEventListener("touchcancel", (event)=> {
+            this.onPointerUp(event);
+        }, false);
+        this.domElement.addEventListener("touchleave", (event)=> {
+            this.onPointerUp(event)
+        }, false);
     }
 
     public dispose() {
-        this.domElement.removeEventListener("mousedown", this.onPointerDown);
-        this.domElement.removeEventListener("touchstart", this.onPointerDown);
+        this.domElement.removeEventListener("mousedown", (event)=> {
+            this.onPointerDown(event);
+        });
+        this.domElement.removeEventListener("touchstart", (event)=> {
+            this.onPointerDown(event);
+        });
 
-        this.domElement.removeEventListener("mousemove", this.onPointerHover);
-        this.domElement.removeEventListener("touchmove", this.onPointerHover);
+        this.domElement.removeEventListener("mousemove", (event)=> {
+            this.onPointerHover(event);
+        });
+        this.domElement.removeEventListener("touchmove", (event)=> {
+            this.onPointerHover(event);
+        });
 
-        this.domElement.addEventListener("mousemove", this.onPointerMove);
-        this.domElement.addEventListener("touchmove", this.onPointerMove);
+        this.domElement.addEventListener("mousemove", (event)=> {
+            this.onPointerMove(event);
+        });
+        this.domElement.addEventListener("touchmove", (event)=> {
+            this.onPointerMove(event);
+        });
 
-        this.domElement.removeEventListener("mouseup", this.onPointerUp);
-        this.domElement.removeEventListener("mouseout", this.onPointerUp);
-        this.domElement.removeEventListener("touchend", this.onPointerUp);
-        this.domElement.removeEventListener("touchcancel", this.onPointerUp);
-        this.domElement.removeEventListener("touchleave", this.onPointerUp);
+        this.domElement.removeEventListener("mouseup", (event)=> {
+            this.onPointerUp(event);
+        });
+        this.domElement.removeEventListener("mouseout", (event)=> {
+            this.onPointerUp(event);
+        });
+        this.domElement.removeEventListener("touchend", (event)=> {
+            this.onPointerUp(event);
+        });
+        this.domElement.removeEventListener("touchcancel", (event)=> {
+            this.onPointerUp(event);
+        });
+        this.domElement.removeEventListener("touchleave", (event)=> {
+            this.onPointerUp(event);
+        });
 
     }
 
@@ -189,11 +233,11 @@ class SectionControls extends THREE.Object3D {
         this.dispatchEvent(this.changeEvent);
     }
 
-    public setTranslationSnap(translationSnap:THREE.Vector3) {
+    public setTranslationSnap(translationSnap:number) {
         this.translationSnap = translationSnap;
     }
 
-    public setRotationSnap(rotationSnap:THREE.Vector3) {
+    public setRotationSnap(rotationSnap:number) {
         this.rotationSnap = rotationSnap
     }
 
@@ -224,7 +268,7 @@ class SectionControls extends THREE.Object3D {
         this._scale = this.worldPosition.distanceTo(this.camPosition) / 6 * this.size;
         this.position.copy(this.worldPosition);
         this.scale.set(this._scale, this._scale, this._scale);
-        this.eye.copy(this.camPosition)
+        this.eye.copy(this.camPosition);
 
         if (this.space === "lcoal") {
             this._gizmo[this._mode].update(this.worldRotation, this.eye);
@@ -235,7 +279,8 @@ class SectionControls extends THREE.Object3D {
 
     }
 
-    private onPointerHover(event) {
+    public onPointerHover(event) {
+
         if (this.object === undefined || this._dragging === true || (event.button !== undefined && event.button !== 0)) {
             return;
         }
@@ -253,7 +298,7 @@ class SectionControls extends THREE.Object3D {
         }
     }
 
-    private onPointerDown(event) {
+    public onPointerDown(event) {
         if (this.object === undefined || this._dragging === true || (event.button !== undefined && event.button !== 0)) {
             return;
         }
@@ -288,7 +333,7 @@ class SectionControls extends THREE.Object3D {
 
     }
 
-    private onPointerMove(event) {
+    public onPointerMove(event) {
         if (this.object === undefined || this._dragging === false || this.axis === null || (event.button !== undefined && event.button !== 0)) {
             return;
         }
@@ -355,9 +400,9 @@ class SectionControls extends THREE.Object3D {
             if (this.space === "local") {
                 if (this.axis === "xyz") {
                     this._scale = 1 + ((this.point.y) / Math.max(this.oldScale.x, this.oldScale.y, this.oldScale.z));
-                    this.object.scale.x = this.oldScale * this._scale;
-                    this.object.scale.y = this.oldScale * this._scale;
-                    this.object.scale.z = this.oldScale * this._scale;
+                    this.object.scale.x = this.oldScale.x * this._scale;
+                    this.object.scale.y = this.oldScale.y * this._scale;
+                    this.object.scale.z = this.oldScale.z * this._scale;
                 } else {
                     this.point.applyMatrix4(this.tempMatrix.getInverse(this.worldRotationMatrix));
                     if (this.axis === "x") {
@@ -402,7 +447,8 @@ class SectionControls extends THREE.Object3D {
                 this.quaternionE.setFromEuler(new THREE.Euler().setFromVector3(tempEuler));
 
                 this.tempQuaternion.setFromRotationMatrix(this.tempMatrix.getInverse(this.parentRotationMatrix));
-                this.quaternionX.setFromAxisAngle(<THREE.Vector3>this.quaternionE, -this.point.clone().angleTo(this.tempVector));
+                const _quaternionE = new THREE.Vector3().fromArray(this.quaternionE.toArray());
+                this.quaternionX.setFromAxisAngle(_quaternionE, -this.point.clone().angleTo(this.tempVector));
                 this.quaternionXYZ.setFromRotationMatrix(this.worldRotationMatrix);
 
                 this.tempQuaternion.multiplyQuaternions(this.tempQuaternion, this.quaternionX);
@@ -476,7 +522,7 @@ class SectionControls extends THREE.Object3D {
         this.dispatchEvent(this.objectChangeEvent);
     }
 
-    private onPointerUp(event) {
+    public onPointerUp(event) {
         event.preventDefault();
         if (event.button !== undefined && event.button !== 0) {
             return;
@@ -492,11 +538,13 @@ class SectionControls extends THREE.Object3D {
             this.update();
             this.dispatchEvent(this.changeEvent);
         } else {
-            this.onPointerHover(event);
+            (event)=> {
+                this.onPointerHover(event);
+            };
         }
     }
 
-    private intersectObjects(pointer:MouseEvent|Touch, objects:THREE.Object3D[]):THREE.Intersection | boolean {
+    public intersectObjects(pointer:MouseEvent|Touch, objects:THREE.Object3D[]):THREE.Intersection | boolean {
         const rect = this.domElement.getBoundingClientRect();
         const x = (pointer.clientX - rect.left) / rect.width;
         const y = (pointer.clientY - rect.top) / rect.height;

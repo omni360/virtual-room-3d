@@ -1795,7 +1795,7 @@ declare module THREE {
 
         removeEventListener(type:string, listener:(event:any) => void):void;
 
-        dispatchEvent(event:{ type:string; target:any; }):void;
+        dispatchEvent(event:{ type:string; target?:any; mode?:any }):void;
 
     }
 

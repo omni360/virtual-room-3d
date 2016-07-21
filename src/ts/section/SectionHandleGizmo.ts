@@ -2,13 +2,13 @@
  * Created by imaker on 7/19/2016.
  */
 class SectionHandleGizmo {
-    public x:[THREE.Mesh[],THREE.Line[]];
-    public y:[THREE.Mesh[],THREE.Line[]];
-    public z:[THREE.Mesh[],THREE.Line[]];
-    public xyz:[THREE.Mesh[]];
-    public xy:[THREE.Mesh[]];
-    public yz:[THREE.Mesh[]];
-    public xz:[THREE.Mesh[]];
+    public x:[(THREE.Mesh | number[])[],THREE.Line[]];
+    public y:[(THREE.Mesh | number[])[],THREE.Line[]];
+    public z:[(THREE.Mesh | number[])[],THREE.Line[]];
+    public xyz:[(THREE.Mesh|number[])[]];
+    public xy:[(THREE.Mesh|number[])[]];
+    public yz:[(THREE.Mesh|number[])[]];
+    public xz:[(THREE.Mesh|number[])[]];
 
     constructor() {
         let arrowGeometry = new THREE.Geometry();

@@ -9,6 +9,8 @@ class EntryPoint {
 
     renderer:THREE.WebGLRenderer;
     controls:THREE.OrbitControls;
+    sectionControls:SectionControls;
+    // transformControls:TransformContrls;
     clock = new THREE.Clock(true);
 
     scene:THREE.Scene;
@@ -31,6 +33,7 @@ class EntryPoint {
         this.renderer.setSize(parent.width(), parent.height());
         this.renderer.setClearColor(0x80aaff);
 
+
         this.scene = new THREE.Scene();
         this.root = new THREE.Object3D();
         this.scene.add(this.root);
@@ -41,7 +44,11 @@ class EntryPoint {
         this.camera.lookAt(this.scene.position);
         this.scene.add(this.camera);
 
-        this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
+        // init section tools
+        this.sectionControls = new SectionControls(this.camera, this.renderer.domElement);
+        this.scene.add(this.sectionControls);
+        // this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
+
     }
 
     /**
@@ -56,7 +63,7 @@ class EntryPoint {
         this.initMainDoor(model, dashboard);
         this.initBlinds(model, dashboard);
         this.initFan(model, dashboard);
-        this.initSectionTool();
+        this.initSectionControls(model,dashboard);
         this.test();
 
         model.rotateX(-Math.PI / 2);
@@ -87,6 +94,13 @@ class EntryPoint {
             new THREE.Vector3(0, 0, 1),
             0, -Math.PI / 3, position);
         this.virtualDeviceManager.addDevice(j1);
+    }
+
+    private initSectionControls(model:THREE.Object3D, dashboard:JQuery) {
+        let door = model.getObjectByName("Door");
+        this.sectionControls.attach(door);
+        console.log(this.sectionControls.object);
+        // this.sectionControls.setMode("translate");
     }
 
     private initBlinds(model:THREE.Object3D, dashboard:JQuery) {
@@ -128,7 +142,8 @@ class EntryPoint {
         requestAnimationFrame(() => this.render());
         var delta = this.clock.getDelta();
         // this.root.rotation.y += delta * sceneRotationSpeed;
-        this.controls.update();
+        // this.controls.update();
+        this.sectionControls.update();
         this.virtualDeviceManager.update(delta);
         this.renderer.render(this.scene, this.camera);
     }
