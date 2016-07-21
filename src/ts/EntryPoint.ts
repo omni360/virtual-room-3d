@@ -99,8 +99,7 @@ class EntryPoint {
     private initSectionControls(model:THREE.Object3D, dashboard:JQuery) {
         let door = model.getObjectByName("Door");
         this.sectionControls.attach(door);
-        console.log(this.sectionControls.object);
-        // this.sectionControls.setMode("translate");
+        this.sectionControls.setMode("translate");
     }
 
     private initBlinds(model:THREE.Object3D, dashboard:JQuery) {

@@ -1,7 +1,7 @@
 /**
  * Created by imaker on 7/19/2016.
  */
-class SectionHandleGizmo {
+class SectionTranslateHandleGizmo {
     public x:[(THREE.Mesh | number[])[],THREE.Line[]];
     public y:[(THREE.Mesh | number[])[],THREE.Line[]];
     public z:[(THREE.Mesh | number[])[],THREE.Line[]];

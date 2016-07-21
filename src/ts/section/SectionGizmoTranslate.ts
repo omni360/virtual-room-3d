@@ -2,13 +2,13 @@
  * Created by imaker on 7/19/2016.
  */
 class SectionGizmoTranslate extends SectionGizmo {
-    public handleGizmos:SectionHandleGizmo;
-    public pickerGizmos:SectionPickerGizmo;
+    public handleGizmos:SectionTranslateHandleGizmo;
+    public pickerGizmos:SectionTranslatePickerGizmo;
 
     constructor() {
         super();
-        this.handleGizmos = new SectionHandleGizmo();
-        this.pickerGizmos = new SectionPickerGizmo();
+        this.handleGizmos = new SectionTranslateHandleGizmo();
+        this.pickerGizmos = new SectionTranslatePickerGizmo();
         this.init();
     }
 

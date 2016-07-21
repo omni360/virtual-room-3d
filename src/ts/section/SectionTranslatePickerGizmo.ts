@@ -1,7 +1,7 @@
 /**
  * Created by imaker on 7/19/2016.
  */
-class SectionPickerGizmo {
+class SectionTranslatePickerGizmo {
     public x:[(THREE.Mesh|number[])[]];
     public y:[(THREE.Mesh|number[])[]];
     public z:[(THREE.Mesh|number[])[]];

@@ -330,6 +330,7 @@ class SectionControls extends THREE.Object3D {
             }
         }
         this._dragging = true;
+        console.log(this._dragging);
 
     }
 
@@ -337,8 +338,12 @@ class SectionControls extends THREE.Object3D {
         if (this.object === undefined || this._dragging === false || this.axis === null || (event.button !== undefined && event.button !== 0)) {
             return;
         }
+        console.log(this._dragging);
         let pointer = event.changedTouches ? event.changedTouches[0] : event;
+        console.log(pointer);
+        console.log(this._gizmo[this._mode].activePlane);
         let planeIntersect = this.intersectObjects(pointer, [this._gizmo[this._mode].activePlane]);
+        console.log(planeIntersect);
         if (planeIntersect === false) {
             return;
         }
@@ -538,9 +543,7 @@ class SectionControls extends THREE.Object3D {
             this.update();
             this.dispatchEvent(this.changeEvent);
         } else {
-            (event)=> {
-                this.onPointerHover(event);
-            };
+            this.onPointerHover(event);
         }
     }
 
