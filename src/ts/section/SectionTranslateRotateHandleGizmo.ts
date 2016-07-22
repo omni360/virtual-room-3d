@@ -7,9 +7,13 @@ class SectionTranslateRotateHandleGizmo {
     public ry:[(THREE.Mesh|number[])[]];
 
     constructor() {
-        let arrowGeomtry = SectionArrowGeometry.getArrowGeomety();
+        let arrowGeometry = new THREE.Geometry();
+        let mesh = new THREE.Mesh(new THREE.CylinderGeometry(0, 0.05, 0.2, 12, 1, false));
+        mesh.position.y = 0.5;
+        mesh.updateMatrix();
+        arrowGeometry.merge(mesh.geometry, mesh.matrix);
         this.z = [
-            [new THREE.Mesh(arrowGeomtry, new SectionGizmoMaterial({color: 0xffffff})),
+            [new THREE.Mesh(arrowGeometry, new SectionGizmoMaterial({color: 0xffffff})),
                 [0.5, 0, 0],
                 [Math.PI / 2, 0, 0]
             ],

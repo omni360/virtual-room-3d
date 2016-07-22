@@ -20,7 +20,7 @@ var lessFiles = './src/less/**/*.less';
 var jsFiles = [
   'bower_components/jquery/dist/jquery.min.js',
   'bower_components/purl/purl.js',
-  'bower_components/three.js/build/three.min.js',
+  'bower_components/three.js/build/three.js',
   'bower_components/three.js/examples/js/loaders/ColladaLoader.js',
   'bower_components/three.js/examples/js/controls/OrbitControls.js',
 ];
