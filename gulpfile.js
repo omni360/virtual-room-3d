@@ -22,7 +22,7 @@ var jsFiles = [
   'bower_components/purl/purl.js',
   'bower_components/three.js/build/three.js',
   'bower_components/three.js/examples/js/loaders/ColladaLoader.js',
-  'bower_components/three.js/examples/js/controls/OrbitControls.js',
+  'bower_components/three.js/examples/js/controls/OrbitControls.js'
 ];
 
 var cssFiles = [
