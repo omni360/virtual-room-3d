@@ -75,7 +75,7 @@ class SectionControls extends THREE.Object3D {
         this.space = "world";
         this.size = 1;
         this.axis = null;
-        this._mode = "translate";
+        this._mode = "transrotate";
         this._dragging = false;
         this.plane = "xy";
         this._gizmo = new SectionGizmoType();

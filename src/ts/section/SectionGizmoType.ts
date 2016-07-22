@@ -5,11 +5,11 @@ class SectionGizmoType{
     public translate:SectionGizmoTranslate;
     public rotate:SectionGizmoRotate;
     public scale:SectionGizmoScale;
-    public transroate:SectionGizmoTranslateRotate;
+    public transrotate:SectionGizmoTranslateRotate;
     constructor(){
         this.translate = new SectionGizmoTranslate();
         this.rotate = new SectionGizmoRotate();
         this.scale = new SectionGizmoScale();
-        this.transroate = new SectionGizmoTranslateRotate();
+        this.transrotate = new SectionGizmoTranslateRotate();
     }
 }

@@ -16,6 +16,7 @@ class SectionGizmoTranslateRotate extends SectionGizmo {
         this.subPickerGizmos = new SectionTranslateRotateSubPickerGizmo();
         this.highlightGizmos = new SectionTranslateRotationHighlightGizmo();
         this.hemiPickerGizmos = new SectionTranslateRotateHemiPickerGizmo();
+        this.init();
     }
 
     public setActivePlane(axis:string, eye:THREE.Vector3) {

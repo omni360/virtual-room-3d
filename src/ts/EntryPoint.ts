@@ -99,7 +99,7 @@ class EntryPoint {
     private initSectionControls(model:THREE.Object3D, dashboard:JQuery) {
         let door = model.getObjectByName("Fan");
         this.sectionControls.attach(door);
-        this.sectionControls.setMode("translate");
+        this.sectionControls.setMode("transrotate");
     }
 
     private initBlinds(model:THREE.Object3D, dashboard:JQuery) {
