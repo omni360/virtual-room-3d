@@ -45,6 +45,7 @@ class SectionGizmoTranslate extends SectionGizmo {
         if (axis === "xz") {
             this.activePlane = this.planes["xz"];
         }
+
     }
 
 }

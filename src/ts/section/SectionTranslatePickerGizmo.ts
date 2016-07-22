@@ -11,18 +11,25 @@ class SectionTranslatePickerGizmo {
     public xz:[(THREE.Mesh|number[])[]];
 
     constructor() {
-        const pickerMaterial = new SectionGizmoMaterial({visible: false, transparent: false});
+        let pickerMaterial = new SectionGizmoMaterial({visible: false, transparent: false});
 
         this.x = [
-            [new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0, 1, 4, 1, false), pickerMaterial), [0.6, 0, 0], [0, 0, -Math.PI / 2]]
+            [new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0, 1, 4, 1, false), pickerMaterial),
+                [0.6, 0, 0],
+                [0, 0, -Math.PI / 2]
+            ]
         ];
 
         this.y = [
-            [new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0, 1, 4, 1, false), pickerMaterial), [0, 0.6, 0]]
+            [new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0, 1, 4, 1, false), pickerMaterial),
+                [0, 0.6, 0]
+            ]
         ];
 
         this.z = [
-            [new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0, 1, 4, 1, false), pickerMaterial), [0, 0, 0.6], [Math.PI / 2, 0, 0]]
+            [new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0, 1, 4, 1, false), pickerMaterial),
+                [0, 0, 0.6],
+                [Math.PI / 2, 0, 0]]
         ];
 
         this.xyz = [
@@ -30,15 +37,23 @@ class SectionTranslatePickerGizmo {
         ];
 
         this.xy = [
-            [new THREE.Mesh(new THREE.PlaneBufferGeometry(0.4, 0.4), pickerMaterial), [0.2, 0.2, 0]]
+            [new THREE.Mesh(new THREE.PlaneBufferGeometry(0.4, 0.4), pickerMaterial),
+                [0.2, 0.2, 0]
+            ]
         ];
 
         this.yz = [
-            [new THREE.Mesh(new THREE.PlaneBufferGeometry(0.4, 0.4), pickerMaterial), [0, 0.2, 0.2], [0, Math.PI / 2, 0]]
+            [new THREE.Mesh(new THREE.PlaneBufferGeometry(0.4, 0.4), pickerMaterial),
+                [0, 0.2, 0.2],
+                [0, Math.PI / 2, 0]
+            ]
         ];
 
         this.xz = [
-            [new THREE.Mesh(new THREE.PlaneBufferGeometry(0.4, 0.4), pickerMaterial), [0.2, 0, 0.2], [-Math.PI / 2, 0, 0]]
+            [new THREE.Mesh(new THREE.PlaneBufferGeometry(0.4, 0.4), pickerMaterial),
+                [0.2, 0, 0.2],
+                [-Math.PI / 2, 0, 0]
+            ]
         ];
     }
 }

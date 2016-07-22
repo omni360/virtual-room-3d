@@ -3,7 +3,7 @@ class SceneUtils {
   static shadowsEnabled = purl().param("shadows") == "true" ? true : false;
 
   //noinspection TypeScriptUnresolvedFunction
-  static colladaLoader = new (THREE as any).ColladaLoader();
+  static colladaLoader = new THREE.ColladaLoader();
 
   static loadScene(path: string): JQueryDeferred<THREE.Object3D> {
     var promise: JQueryDeferred<THREE.Object3D> = jQuery.Deferred<THREE.Object3D>();

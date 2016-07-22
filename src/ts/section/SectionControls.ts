@@ -288,7 +288,7 @@ class SectionControls extends THREE.Object3D {
         let intersect = this.intersectObjects(pointer, this._gizmo[this._mode].pickers.children);
         let axis = null;
         if (intersect) {
-            axis = (intersect as any).object.name;
+            axis = (intersect as THREE.Intersection).object.name;
             event.preventDefault();
         }
         if (this.axis !== axis) {
@@ -302,7 +302,7 @@ class SectionControls extends THREE.Object3D {
         if (this.object === undefined || this._dragging === true || (event.button !== undefined && event.button !== 0)) {
             return;
         }
-        let pointer = event.changedTouches ? event.changedTouches[0] : event;
+        var pointer = event.changedTouches ? event.changedTouches[0] : event;
         if (pointer.button === 0 || pointer.button === undefined) {
             let intersect = this.intersectObjects(pointer, this._gizmo[this._mode].pickers.children);
             if (intersect) {
@@ -324,13 +324,12 @@ class SectionControls extends THREE.Object3D {
                     this.parentRotationMatrix.extractRotation(this.object.parent.matrixWorld);
                     this.parentScale.setFromMatrixScale(this.tempMatrix.getInverse(this.object.parent.matrixWorld));
 
-                    this.offset.copy((planeIntersect as any).point)
+                    this.offset.copy((planeIntersect as THREE.Intersection).point)
 
                 }
             }
         }
         this._dragging = true;
-        console.log(this._dragging);
 
     }
 
@@ -338,18 +337,16 @@ class SectionControls extends THREE.Object3D {
         if (this.object === undefined || this._dragging === false || this.axis === null || (event.button !== undefined && event.button !== 0)) {
             return;
         }
-        console.log(this._dragging);
+        // console.log(this.object.position);
+        // console.log(this.position);
         let pointer = event.changedTouches ? event.changedTouches[0] : event;
-        console.log(pointer);
-        console.log(this._gizmo[this._mode].activePlane);
         let planeIntersect = this.intersectObjects(pointer, [this._gizmo[this._mode].activePlane]);
-        console.log(planeIntersect);
         if (planeIntersect === false) {
             return;
         }
         event.preventDefault();
         event.stopPropagation();
-        this.point.copy((planeIntersect as any).point);
+        this.point.copy((planeIntersect as THREE.Intersection).point);
         if (this._mode === "translate") {
             this.point.sub(this.offset);
             this.point.multiply(this.parentScale);
@@ -358,13 +355,13 @@ class SectionControls extends THREE.Object3D {
                 if (this.axis.search("x") === -1) {
                     this.point.x = 0;
                 }
-                if (this.axis.search("y")) {
+                if (this.axis.search("y") === -1) {
                     this.point.y = 0;
                 }
-                if (this.axis.search("z")) {
+                if (this.axis.search("z") === -1) {
                     this.point.z = 0;
                 }
-                this.point.applyMatrix4(this.tempMatrix.getInverse(this.parentRotationMatrix));
+                this.point.applyMatrix4(this.oldRotationMatrix);
                 this.object.position.copy(this.oldPosition);
                 this.object.position.add(this.point);
             }
@@ -422,7 +419,8 @@ class SectionControls extends THREE.Object3D {
                 }
             }
 
-        } else if (this._mode === "rotate") {
+        }
+        else if (this._mode === "rotate") {
             this.point.sub(this.worldPosition);
             this.point.multiply(this.parentScale);
             this.tempVector.copy(this.offset).sub(this.worldPosition);

@@ -40,7 +40,7 @@ class EntryPoint {
         this.scene.add(new THREE.AmbientLight(0x202020));
 
         this.camera = new THREE.PerspectiveCamera(45, parent.width() / parent.height(), 0.1, 1000);
-        this.camera.position.set(0, 8, 16);
+        this.camera.position.set(15, 10, 16);
         this.camera.lookAt(this.scene.position);
         this.scene.add(this.camera);
 
@@ -97,7 +97,7 @@ class EntryPoint {
     }
 
     private initSectionControls(model:THREE.Object3D, dashboard:JQuery) {
-        let door = model.getObjectByName("Door");
+        let door = model.getObjectByName("Fan");
         this.sectionControls.attach(door);
         this.sectionControls.setMode("translate");
     }

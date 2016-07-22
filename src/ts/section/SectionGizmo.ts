@@ -10,14 +10,17 @@ class SectionGizmo extends THREE.Object3D {
     public subPickers:THREE.Object3D;
     public activePlane:THREE.Mesh;
     // TODO: init handle and pickers
-    public handleGizmos:any;
-    public pickerGizmos:any;
+    public handleGizmos:{[key:string]:any};
+    public pickerGizmos:{[key:string]:any};
 
     /**
      * 构造函数
      */
     constructor() {
         super();
+    }
+
+    public init() {
         this.handles = new THREE.Object3D();
         this.pickers = new THREE.Object3D();
         this.planes = new THREE.Object3D();
@@ -30,20 +33,14 @@ class SectionGizmo extends THREE.Object3D {
         this.add(this.highlights);
         this.add(this.hemiPickers);
         this.add(this.subPickers);
-
-
-    }
-
-    public init() {
         let planes = new SectionGizmoPlanes();
         this.activePlane = planes.xyze;
         planes.yz.rotation.set(0, Math.PI / 2, 0);
-        planes.xz.rotation.set(-Math.PI, 0, 0);
+        planes.xz.rotation.set(-Math.PI / 2, 0, 0);
         for (let plane in planes) {
             planes[plane].name = plane.toString();
             this.planes.add(planes[plane]);
             this.planes[plane] = planes[plane];
-            this.planes[plane].visible = false;
         }
         this.setupGizmos(this.handleGizmos, this.handles);
         this.setupGizmos(this.pickerGizmos, this.pickers);
@@ -101,7 +98,9 @@ class SectionGizmo extends THREE.Object3D {
         this.traverse((child:any)=> {
             if (child.name.search("e") !== -1) {
                 child.quaternion.setFromRotationMatrix(lookAtMatrix.lookAt(eye, vec1, vec2));
-            } else if (child.name.search("x") !== -1 || child.name.search("y") !== -1 || child.name.search("z") !== -1) {
+            } else if (child.name.search("x") !== -1 ||
+                    child.name.search("y") !== -1 ||
+                    child.name.search("z") !== -1) {
                 child.quaternion.setFromEuler(rotation);
             }
         })

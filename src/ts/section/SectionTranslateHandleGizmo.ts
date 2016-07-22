@@ -40,28 +40,37 @@ class SectionTranslateHandleGizmo {
             [new THREE.Mesh(new THREE.OctahedronGeometry(0.1, 0), new SectionGizmoMaterial({
                 color: 0xffffff,
                 opacity: 0.25
-            })), [0, 0, 0], [0, 0, 0]]
+            })), [0, 0, 0],
+                [0, 0, 0]
+            ]
         ];
 
         this.xy = [
             [new THREE.Mesh(new THREE.PlaneBufferGeometry(0.29, 0.29), new SectionGizmoMaterial({
                 color: 0xffff00,
                 opacity: 0.25
-            })), [0.15, 0.15, 0]]
+            })),
+                [0.15, 0.15, 0]
+            ]
         ];
 
         this.yz = [
             [new THREE.Mesh(new THREE.PlaneBufferGeometry(0.29, 0.29), new SectionGizmoMaterial({
                 color: 0x00ffff,
                 opacity: 0.25
-            })), [0, 0.15, 0.15], [0, Math.PI / 2, 0]]
+            })),
+                [0, 0.15, 0.15],
+                [0, Math.PI / 2, 0]
+            ]
         ];
 
         this.xz = [
             [new THREE.Mesh(new THREE.PlaneBufferGeometry(0.29, 0.29), new SectionGizmoMaterial({
                 color: 0xff00ff,
                 opacity: 0.25
-            })), [0.15, 0, 0.15], [-Math.PI / 2, 0, 0]]
+            })),
+                [0.15, 0, 0.15],
+                [-Math.PI / 2, 0, 0]]
         ];
 
     }
