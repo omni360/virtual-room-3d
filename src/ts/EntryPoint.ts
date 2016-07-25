@@ -7,6 +7,8 @@ const sceneRotationSpeed = 0.1;
  */
 class EntryPoint {
 
+    public static cliped = purl().param("cliped") === "true" ? true : false;
+
     renderer:THREE.WebGLRenderer;
     controls:THREE.OrbitControls;
     sectionControls:SectionControls;
@@ -32,6 +34,9 @@ class EntryPoint {
         this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
         this.renderer.setSize(parent.width(), parent.height());
         this.renderer.setClearColor(0x80aaff);
+        if(EntryPoint.cliped){
+            (this.renderer as any).localClippingEnabled  = true;
+        }
 
 
         this.scene = new THREE.Scene();
@@ -47,7 +52,7 @@ class EntryPoint {
         // init section tools
         this.sectionControls = new SectionControls(this.camera, this.renderer.domElement);
         this.scene.add(this.sectionControls);
-        // this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
+        this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
 
     }
 
@@ -63,7 +68,7 @@ class EntryPoint {
         this.initMainDoor(model, dashboard);
         this.initBlinds(model, dashboard);
         this.initFan(model, dashboard);
-        this.initSectionControls(model,dashboard);
+        this.initSectionControls(model, dashboard);
         this.test();
 
         model.rotateX(-Math.PI / 2);
@@ -98,6 +103,9 @@ class EntryPoint {
 
     private initSectionControls(model:THREE.Object3D, dashboard:JQuery) {
         let door = model.getObjectByName("Fan");
+        let states = new ValueParameter(0);
+        let changToTranslate = new CombinedParameter(states, this.backend.getMaxBrightness());
+        this.viewFactory.makeOnOff("translate", states, dashboard);
         this.sectionControls.attach(door);
         this.sectionControls.setMode("transrotate");
     }

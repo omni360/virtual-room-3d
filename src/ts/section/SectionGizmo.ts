@@ -76,6 +76,24 @@ class SectionGizmo extends THREE.Object3D {
         }
     }
 
+    public hide() {
+        this.traverse((child:any)=> {
+            child.visible = false;
+        });
+    }
+
+    public show() {
+        this.traverse((child:any)=> {
+            child.visible = true;
+            if (child.parent === this.pickers || child.parent === this.hemiPickers) {
+                child.visible = false;
+            }
+            if (child.parent === this.planes) {
+                child.visible = false;
+            }
+        })
+    }
+
     public highlight(axis:string) {
         if (axis) {
             this.traverse((child:any)=> {
@@ -99,8 +117,8 @@ class SectionGizmo extends THREE.Object3D {
             if (child.name.search("e") !== -1) {
                 child.quaternion.setFromRotationMatrix(lookAtMatrix.lookAt(eye, vec1, vec2));
             } else if (child.name.search("x") !== -1 ||
-                    child.name.search("y") !== -1 ||
-                    child.name.search("z") !== -1) {
+                child.name.search("y") !== -1 ||
+                child.name.search("z") !== -1) {
                 child.quaternion.setFromEuler(rotation);
             }
         })

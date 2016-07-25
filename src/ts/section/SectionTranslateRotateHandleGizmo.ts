@@ -14,7 +14,7 @@ class SectionTranslateRotateHandleGizmo {
         arrowGeometry.merge(mesh.geometry, mesh.matrix);
         this.z = [
             [new THREE.Mesh(arrowGeometry, new SectionGizmoMaterial({color: 0xffffff})),
-                [0.5, 0, 0],
+                [0, 0, 0.25],
                 [Math.PI / 2, 0, 0]
             ],
             [new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.015, 0.6, 4, 1, false), new SectionGizmoMaterial({
@@ -26,19 +26,19 @@ class SectionTranslateRotateHandleGizmo {
         ];
         this.rx = [
             [new THREE.Mesh(new THREE.TorusGeometry(1, 0.015, 12, 60, 0.3 * Math.PI), new SectionGizmoMaterial({
-                color: 0xffffff
+                color: 0xff0000,
             })),
                 [0, 0, 0],
-                [0.15 * Math.PI, Math.PI / 2, 0]
+                [0.15 * Math.PI, -Math.PI / 2, 0]
             ],
             [new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.015, 60, 1, false), new SectionGizmoMaterial({
-                color: 0xffffff
+                color:0xff0000,
             })), [0, 0, 1],
                 [Math.PI / 2, 0, 0]
             ]
         ];
         this.ry = [
-            [new THREE.Mesh(new THREE.TorusGeometry(1, 0.15, 12, 60, 3 * Math.PI), new SectionGizmoMaterial({
+            [new THREE.Mesh(new THREE.TorusGeometry(1, 0.015, 12, 60, 0.3 * Math.PI), new SectionGizmoMaterial({
                 color: 0x0000ff
             })),
                 [0, 0, 0],

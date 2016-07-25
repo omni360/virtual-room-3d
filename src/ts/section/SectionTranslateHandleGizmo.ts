@@ -40,7 +40,8 @@ class SectionTranslateHandleGizmo {
             [new THREE.Mesh(new THREE.OctahedronGeometry(0.1, 0), new SectionGizmoMaterial({
                 color: 0xffffff,
                 opacity: 0.25
-            })), [0, 0, 0],
+            })),
+                [0, 0, 0],
                 [0, 0, 0]
             ]
         ];

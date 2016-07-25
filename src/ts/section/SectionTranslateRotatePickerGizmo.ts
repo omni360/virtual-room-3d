@@ -16,8 +16,8 @@ class SectionTranslateRotatePickerGizmo {
             ]
         ];
         this.rx = [
-            [new THREE.Mesh(new THREE.TorusGeometry(1, 0.12, 4, 12, 0.3 * Math.PI), new SectionGizmoMaterial({
-                color: 0xffffff,
+            [new THREE.Mesh(new THREE.TorusGeometry(1, 0.12, 4, 12, 2 * Math.PI), new SectionGizmoMaterial({
+                color: 0xff0000,
                 opacity: 0.25
             })),
                 [0, 0, 0],
@@ -25,7 +25,7 @@ class SectionTranslateRotatePickerGizmo {
             ]
         ];
         this.ry = [
-            [new THREE.Mesh(new THREE.TorusGeometry(1, 0.12, 4, 12, 0.3 * Math.PI), new SectionGizmoMaterial({
+            [new THREE.Mesh(new THREE.TorusGeometry(1, 0.12, 4, 12, 2 * Math.PI), new SectionGizmoMaterial({
                 color: 0x0000ff,
                 opacity: 0.25
             })),

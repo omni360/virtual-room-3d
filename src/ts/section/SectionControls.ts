@@ -14,6 +14,7 @@ class SectionControls extends THREE.Object3D {
     public space:string;
     public size:number;
     public axis:string;
+    public useAllPickers:boolean;
     private _mode:string;
     private _dragging:boolean;
     private plane:string;
@@ -70,6 +71,7 @@ class SectionControls extends THREE.Object3D {
         this.domElement = (domElement !== undefined) ? domElement : document;
         this.object = undefined;
         this.visible = false;
+        this.useAllPickers = true;
         this.translationSnap = null;
         this.rotationSnap = null;
         this.space = "world";

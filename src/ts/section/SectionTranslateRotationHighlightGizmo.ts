@@ -18,9 +18,9 @@ class SectionTranslateRotationHighlightGizmo {
                 false]
         ];
         this.ry = [
-            [new THREE.Mesh(new THREE.TorusGeometry(1, 0.15, 12, 60, 3 * Math.PI), new SectionGizmoMaterial({
+            [new THREE.Mesh(new THREE.TorusGeometry(1, 0.02, 12, 60, 2 * Math.PI), new SectionGizmoMaterial({
                 color: 0x0000ff,
-                opacity:1
+                opacity: 1
             })),
                 [0, 0, 0],
                 [Math.PI / 2, 0, 0],
