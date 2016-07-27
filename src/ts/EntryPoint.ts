@@ -8,6 +8,7 @@ const sceneRotationSpeed = 0.1;
 class EntryPoint {
 
     public static cliped = purl().param("cliped") === "true" ? true : false;
+    public static clipbox = purl().param("clipbox") === "true" ? true : false;
 
     renderer:THREE.WebGLRenderer;
     controls:THREE.OrbitControls;
@@ -34,8 +35,8 @@ class EntryPoint {
         this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
         this.renderer.setSize(parent.width(), parent.height());
         this.renderer.setClearColor(0x80aaff);
-        if(EntryPoint.cliped){
-            (this.renderer as any).localClippingEnabled  = true;
+        if (EntryPoint.cliped) {
+            (this.renderer as any).localClippingEnabled = true;
         }
 
 
@@ -102,12 +103,31 @@ class EntryPoint {
     }
 
     private initSectionControls(model:THREE.Object3D, dashboard:JQuery) {
-        let door = model.getObjectByName("Fan");
+        let fan = model.getObjectByName("Fan");
         let states = new ValueParameter(0);
         let changToTranslate = new CombinedParameter(states, this.backend.getMaxBrightness());
         this.viewFactory.makeOnOff("translate", states, dashboard);
-        this.sectionControls.attach(door);
+        this.sectionControls.attach(fan);
         this.sectionControls.setMode("transrotate");
+        // SectionUtils.addVisibleBoundingBox(model, this.scene);
+        if (EntryPoint.clipbox) {
+            let clipbox = new SectionClipBoxHelper(model);
+            let sboxhelper = clipbox.getBoxHelper();
+            sboxhelper.rotateX(-Math.PI / 2);
+            sboxhelper.translateZ(-1);
+            this.scene.add(sboxhelper);
+            console.log(sboxhelper);
+            let sectionMesh = clipbox.getInitPlanes();
+            let axis = new THREE.AxisHelper();
+            axis.rotateX(-Math.PI/2);
+            axis.translateZ(-1);
+            this.scene.add(axis);
+            // sectionMesh.forEach((child)=> {
+            //     child.rotateX(-Math.PI /2);
+            //     child.translateZ(-1);
+            //     this.scene.add(child);
+            // })
+        }
     }
 
     private initBlinds(model:THREE.Object3D, dashboard:JQuery) {

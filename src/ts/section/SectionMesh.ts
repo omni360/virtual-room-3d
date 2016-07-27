@@ -10,7 +10,7 @@ class SectionMesh extends THREE.Mesh {
     constructor(geometry?:THREE.Geometry|THREE.BufferGeometry, material?:THREE.Material, plane?:THREE.Plane) {
         super((geometry as any), material);
         this.plane = plane;
-        this.planeVec = new THREE.Vector4(plane.normal.x, plane.normal.y, plane.normal.z);
+        this.planeVec = new THREE.Vector4(plane.normal.x, plane.normal.y, plane.normal.z, plane.constant);
         this.connectivity = [];
         this.outlines = new Array<THREE.Line>();
     }

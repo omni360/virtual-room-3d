@@ -10,10 +10,13 @@ class SceneUtils {
         var promise:JQueryDeferred<THREE.Object3D> = jQuery.Deferred<THREE.Object3D>();
         this.colladaLoader.load(path, (collada) => {
             if (SceneUtils.cliped) {
-                let clipPlane = new THREE.Plane(new THREE.Vector3(1, 0, 0), 0.8);
+                let sm = new SectionClipBoxHelper(collada.scene);
+                sm.getInitPlanes();
+                let clipPlane = sm.getPlanes();
+                // let clipPlane = new THREE.Plane(new THREE.Vector3(1, 0, 0), 0);
                 collada.scene.traverse((object)=> {
                     if (object instanceof THREE.Mesh) {
-                        object.material.clippingPlanes = [clipPlane];
+                        object.material.clippingPlanes = clipPlane;
                         object.material.clipShadows = true;
                     }
                 });
